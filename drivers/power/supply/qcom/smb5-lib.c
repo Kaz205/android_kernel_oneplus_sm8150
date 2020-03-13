@@ -9484,7 +9484,7 @@ static int op_get_skin_thermal_temp(struct smb_charger *chg)
 	else if (chg->skin_thermal_temp <= chg->skin_thermal_normal_threshold)
 		chg->is_skin_thermal_high = false;
 
-	pr_info("skin_thermal_temp=(%d), is_skin_thermal_high(%d)\n",
+	pr_debug("skin_thermal_temp=(%d), is_skin_thermal_high(%d)\n",
 			chg->skin_thermal_temp,
 			chg->is_skin_thermal_high);
 
@@ -9515,11 +9515,11 @@ bool check_call_on_status(void)
 	is_call_on = *g_chg->call_on;
 
 	if (is_call_on == 1) {
-		pr_info("is_call_on=(%d)\n",
+		pr_debug("is_call_on=(%d)\n",
 				is_call_on);
 		return true;
 	} else {
-		pr_info("is_call_on=(%d)\n",
+		pr_debug("is_call_on=(%d)\n",
 				is_call_on);
 		return false;
 	}
@@ -9691,7 +9691,7 @@ static void op_heartbeat_work(struct work_struct *work)
 			goto out;
 		}
 		switch_fast_chg(chg);
-		pr_info("fast chg started, usb_switch=%d\n",
+		pr_debug("fast chg started, usb_switch=%d\n",
 				op_is_usb_switch_on(chg));
 		/* add for disable normal charge */
 		fast_charging = op_get_fastchg_ing(chg);
