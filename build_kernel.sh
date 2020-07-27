@@ -27,7 +27,7 @@ else
 		sed -i -e 's@"want_initramfs"@"skip_initramfs"@g' init/initramfs.c
 	fi
 	echo "Compiling kernel"
-	cp defconfig .config
+	cp arch/arm64/configs/arter97_defconfig .config
 	make "$@" -j$(nproc --all) || exit 1
 	if [[ "$stock" == "1" ]] ; then
 		sed -i -e 's@"skip_initramfs"@"want_initramfs"@g' init/initramfs.c
