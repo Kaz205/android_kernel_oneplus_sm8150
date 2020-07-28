@@ -4188,7 +4188,7 @@ static ssize_t aw8697_osc_cali_show(struct device *dev, struct device_attribute 
 	struct aw8697 *aw8697 = container_of(cdev, struct aw8697, cdev);
 	ssize_t len = 0;
 
-	len += snprintf(buf+len, PAGE_SIZE-len, "%d\n", aw8697->microsecond);
+	len += snprintf(buf+len, PAGE_SIZE-len, "%ld\n", aw8697->microsecond);
 	return len;
 }
 
