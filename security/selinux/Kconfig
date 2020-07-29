@@ -99,3 +99,12 @@ config SECURITY_SELINUX_CHECKREQPROT_VALUE
 	  via /selinux/checkreqprot if authorized by policy.
 
 	  If you are unsure how to answer this question, answer 0.
+	  
+config SELINUX_ENFORCING
+	bool "SELinux enforcing/permissive switch"
+	depends on SECURITY_SELINUX
+	default y
+	help
+	  This option acts as a switch for enabling/disabling SELinux enforcing.
+	  Say y to enable, say n to disable. Note that the kernel will always return
+	  the SELinux state as enforcing no matter what.
