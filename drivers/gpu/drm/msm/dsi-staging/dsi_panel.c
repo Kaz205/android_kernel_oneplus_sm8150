@@ -5010,20 +5010,20 @@ int dsi_panel_switch(struct dsi_panel *panel)
 	if (rc)
 		pr_err("[%s] failed to send DSI_CMD_SET_TIMING_SWITCH cmds, rc=%d\n",
 		       panel->name, rc);
-	pr_err("Send DSI_CMD_SET_TIMING_SWITCH cmds\n");
-	pr_err("panel->cur_mode->timing->h_active = %d\n", panel->cur_mode->timing.h_active);
+	pr_debug("Send DSI_CMD_SET_TIMING_SWITCH cmds\n");
+	pr_debug("panel->cur_mode->timing->h_active = %d\n", panel->cur_mode->timing.h_active);
 
 	if (gamma_read_flag == GAMMA_READ_SUCCESS) {
 		if (mode_fps == 90) {
 			rc = dsi_panel_tx_gamma_cmd_set(panel, DSI_GAMMA_CMD_SET_SWITCH_90HZ);
-			pr_err("Send DSI_GAMMA_CMD_SET_SWITCH_90HZ cmds\n");
+			pr_debug("Send DSI_GAMMA_CMD_SET_SWITCH_90HZ cmds\n");
 			if (rc)
 				pr_err("[%s] Failed to send DSI_GAMMA_CMD_SET_SWITCH_90HZ cmds, rc=%d\n",
 					panel->name, rc);
 		}
 		else {
 			rc = dsi_panel_tx_gamma_cmd_set(panel, DSI_GAMMA_CMD_SET_SWITCH_60HZ);
-			pr_err("Send DSI_GAMMA_CMD_SET_SWITCH_60HZ cmds\n");
+			pr_debug("Send DSI_GAMMA_CMD_SET_SWITCH_60HZ cmds\n");
 			if (rc)
 				pr_err("[%s] Failed to send DSI_GAMMA_CMD_SET_SWITCH_60HZ cmds, rc=%d\n",
 					panel->name, rc);
