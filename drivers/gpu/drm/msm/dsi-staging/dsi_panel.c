@@ -5043,7 +5043,7 @@ int dsi_panel_post_switch(struct dsi_panel *panel)
 	}
 
 	mutex_lock(&panel->panel_lock);
-    pr_err("%s: Send the command DSI_CMD_SET_POST_TIMING_SWITCH \n", __func__);
+    pr_debug("%s: Send the command DSI_CMD_SET_POST_TIMING_SWITCH \n", __func__);
 	rc = dsi_panel_tx_cmd_set(panel, DSI_CMD_SET_POST_TIMING_SWITCH);
 	if (rc)
 		pr_err("[%s] failed to send DSI_CMD_SET_POST_TIMING_SWITCH cmds, rc=%d\n",
