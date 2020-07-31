@@ -169,7 +169,7 @@ static void set_dload_mode(int on)
 	dload_mode_enabled = on;
 }
 
-static bool get_dload_mode(void)
+static bool __maybe_unused get_dload_mode(void)
 {
 	return dload_mode_enabled;
 }
@@ -251,7 +251,7 @@ static void enable_emergency_dload_mode(void)
 	pr_err("dload mode is not enabled on target\n");
 }
 
-static bool get_dload_mode(void)
+static bool __maybe_unused get_dload_mode(void)
 {
 	return false;
 }
