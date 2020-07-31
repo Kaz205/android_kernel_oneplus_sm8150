@@ -10,7 +10,7 @@ make clean -j$(nproc --all) && make mrproper -j$(nproc --all)
 make kaz205_defconfig -j$(nproc --all)
 make -j$(nproc --all)
 
-cp -f out/arch/arm64/boot/Image.gz $ak3/Image.gz
+cp -f out/arch/arm64/boot/Image $ak3/Image
 find out/arch/arm64/boot/dts -name *.dtb -exec cp -f "{}" $ak3/dtb \;
 cd $ak3
 zip -FSr $ak3/kernel.zip ./*
