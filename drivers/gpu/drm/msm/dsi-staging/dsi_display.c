@@ -5459,7 +5459,7 @@ static int dsi_display_force_update_dsi_clk(struct dsi_display *display)
 	rc = dsi_display_link_clk_force_update_ctrl(display->dsi_clk_handle);
 
 	if (!rc) {
-		pr_info("dsi bit clk has been configured to %d\n",
+		pr_debug("dsi bit clk has been configured to %d\n",
 			display->cached_clk_rate);
 
 		atomic_set(&display->clkrate_change_pending, 0);
@@ -7288,7 +7288,7 @@ int dsi_display_validate_mode_change(struct dsi_display *display,
 
 			if (mode_fps != adj_mode->timing.refresh_rate) {
 				mode_fps = adj_mode->timing.refresh_rate;
-				pr_err("set fps: %d, fresh_rate_report_enable : %d\n", mode_fps, fresh_rate_report_enable);
+				pr_debug("set fps: %d, fresh_rate_report_enable : %d\n", mode_fps, fresh_rate_report_enable);
 				ts_switch_poll_rate(mode_fps == 90 ? true : false);
 
 				if (fresh_rate_report_enable) {
