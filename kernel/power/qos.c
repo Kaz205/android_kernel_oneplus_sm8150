@@ -730,6 +730,7 @@ static void pm_qos_irq_notify(struct irq_affinity_notify *notify,
 void pm_qos_add_request(struct pm_qos_request *req,
 			int pm_qos_class, s32 value)
 {
+	dump_stack();
 	if (!req) /*guard against callers passing in null */
 		return;
 
