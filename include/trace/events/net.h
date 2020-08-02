@@ -97,7 +97,7 @@ TRACE_EVENT(net_receive_skb_exit,
 
 	),
 
-	TP_printk(" skbaddr=%pK UTC = %lld", __entry->skbaddr, __entry->utctime)
+	TP_printk(" skbaddr=%pK UTC = %ld", __entry->skbaddr, __entry->utctime)
 );
 
 TRACE_EVENT(net_dev_xmit,
