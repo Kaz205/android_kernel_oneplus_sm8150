@@ -5023,7 +5023,7 @@ int dsi_panel_switch(struct dsi_panel *panel)
 		}
 		else {
 			rc = dsi_panel_tx_gamma_cmd_set(panel, DSI_GAMMA_CMD_SET_SWITCH_60HZ);
-			pr_debug("Send DSI_GAMMA_CMD_SET_SWITCH_60HZ cmds\n");
+			pr_info("Send DSI_GAMMA_CMD_SET_SWITCH_60HZ cmds\n");
 			if (rc)
 				pr_err("[%s] Failed to send DSI_GAMMA_CMD_SET_SWITCH_60HZ cmds, rc=%d\n",
 					panel->name, rc);
