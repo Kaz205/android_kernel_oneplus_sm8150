@@ -12,9 +12,18 @@
 #include <linux/alarmtimer.h>
 #include <linux/version.h>
 
+/* Enable/disable popup camera logging */
+#define MOTOR_DEBUG_LOGGING 0
+
+#if MOTOR_DEBUG_LOGGING
 #define MOTOR_TAG                  "[oneplus_motor] "
 #define MOTOR_ERR(fmt, args...)    printk(KERN_ERR MOTOR_TAG" %s : "fmt,__FUNCTION__,##args)
 #define MOTOR_LOG(fmt, args...)    printk(KERN_INFO MOTOR_TAG" %s : "fmt,__FUNCTION__,##args)
+#else
+#define MOTOR_TAG
+#define MOTOR_ERR
+#define MOTOR_LOG
+#endif
 
 //camera state event to report
 #define MOTOR_EVENT_TYPE			EV_KEY
