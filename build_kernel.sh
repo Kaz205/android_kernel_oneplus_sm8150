@@ -19,7 +19,7 @@ OBJCOPY=llvm-objcopy \
 OBJDUMP=llvm-objdump \
 STRIP=llvm-strip
 
-cp out/arch/arm64/boot/Image $ak/Image
+cp out/arch/arm64/boot/Image.gz $ak/Image.gz
 find out/arch/arm64/boot/dts -name '*.dtb' -exec cat {} + > $ak/dtb
 cd $ak
 zip -FSr9 $ak/kernel.zip ./*
