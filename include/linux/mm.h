@@ -25,7 +25,6 @@
 #include <linux/err.h>
 #include <linux/page_ref.h>
 #include <linux/memremap.h>
-#include <linux/overflow.h>
 
 struct mempolicy;
 struct anon_vma;
@@ -580,17 +579,10 @@ static inline void *kvzalloc(size_t size, gfp_t flags)
 
 static inline void *kvmalloc_array(size_t n, size_t size, gfp_t flags)
 {
-	size_t bytes;
-
-	if (unlikely(check_mul_overflow(n, size, &bytes)))
+	if (size != 0 && n > SIZE_MAX / size)
 		return NULL;
 
-	return kvmalloc(bytes, flags);
-}
-
-static inline void *kvcalloc(size_t n, size_t size, gfp_t flags)
-{
-	return kvmalloc_array(n, size, flags | __GFP_ZERO);
+	return kvmalloc(n * size, flags);
 }
 
 extern void kvfree(const void *addr);
