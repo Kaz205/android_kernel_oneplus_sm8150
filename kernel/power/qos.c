@@ -499,6 +499,21 @@ int pm_qos_update_target(struct pm_qos_constraints *c, struct plist_node *node,
 	pm_qos_set_value(c, curr_value);
 	ret = pm_qos_set_value_for_cpus(c, &cpus);
 
+if (cpumask_test_cpu(4, &cpus) || cpumask_test_cpu(5, &cpus) || cpumask_test_cpu(6, &cpus)){
+		dump_stack();
+		pr_info("Big");
+}
+
+if (cpumask_test_cpu(7, &cpus)){
+		dump_stack();
+		pr_info("Prime");
+}
+
+if (cpumask_test_cpu(0, &cpus) || cpumask_test_cpu(1, &cpus) || cpumask_test_cpu(2, &cpus) || cpumask_test_cpu(3, &cpus){
+  dump_stack();
+  pr_info("Small");
+}
+
 	spin_unlock(&pm_qos_lock);
 
 	trace_pm_qos_update_target(action, prev_value, curr_value);
