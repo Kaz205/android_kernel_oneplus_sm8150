@@ -578,6 +578,9 @@ void __init setup_nr_cpu_ids(void)
 
 static inline bool boot_cpu(int cpu)
 {
+	if (cpu == 7)
+		return false;
+
 	if (!have_boot_cpu_mask)
 		return true;
 
@@ -600,6 +603,9 @@ void __init smp_init(void)
 	cpuhp_threads_init();
 
 	pr_info("Bringing up secondary CPUs ...\n");
+
+	if (cpu_online(7))
+		cpu_down(7);
 
 	/* FIXME: This should be done in userspace --RR */
 	for_each_present_cpu(cpu) {
