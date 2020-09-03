@@ -308,7 +308,6 @@ static void _sde_encoder_pm_qos_add_request(struct drm_encoder *drm_enc,
 	struct pm_qos_request *req;
 	u32 cpu_mask;
 	u32 cpu_dma_latency;
-	int cpu;
 
 	if (!sde_kms->catalog || !sde_kms->catalog->perf.cpu_mask)
 		return;
