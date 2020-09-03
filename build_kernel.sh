@@ -6,7 +6,7 @@ export KBUILD_COMPILER_STRING="$($HOME/proton-clang/bin/clang --version | head -
 
 cd "$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 make clean -j$(nproc --all) && make mrproper -j$(nproc --all)
-make weeb_defconfig -j$(nproc --all)
+make vendor/neutrino_defconfig -j$(nproc --all)
 make -j$(nproc --all) Image.gz-dtb \
 CC="clang" \
 CLANG_TRIPLE="aarch64-linux-gnu-" \
